@@ -6,15 +6,28 @@ part of 'user.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$UserImpl _$$UserImplFromJson(Map<String, dynamic> json) => _$UserImpl(
-      userCode: json['userCode'] as String,
-      userName: json['userName'] as String,
-      passwordEncode: json['passwordEncode'] as String,
+_$UserImpl _$$UserImplFromJson(Map<String, dynamic> json) => $checkedCreate(
+      r'_$UserImpl',
+      json,
+      ($checkedConvert) {
+        final val = _$UserImpl(
+          userCode: $checkedConvert('user_code', (v) => v as String),
+          userName: $checkedConvert('user_name', (v) => v as String),
+          passwordEncode:
+              $checkedConvert('password_encode', (v) => v as String),
+        );
+        return val;
+      },
+      fieldKeyMap: const {
+        'userCode': 'user_code',
+        'userName': 'user_name',
+        'passwordEncode': 'password_encode'
+      },
     );
 
 Map<String, dynamic> _$$UserImplToJson(_$UserImpl instance) =>
     <String, dynamic>{
-      'userCode': instance.userCode,
-      'userName': instance.userName,
-      'passwordEncode': instance.passwordEncode,
+      'user_code': instance.userCode,
+      'user_name': instance.userName,
+      'password_encode': instance.passwordEncode,
     };

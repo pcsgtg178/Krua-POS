@@ -41,6 +41,7 @@ dependencies:
   freezed_annotation: ^2.4.4
   json_annotation: ^4.9.0
   flutter_bloc: ^8.1.6
+  http: ^1.2.2
 
 dev_dependencies:
   flutter_test:
@@ -55,7 +56,14 @@ dev_dependencies:
   build_runner: ^2.4.11
   freezed: ^2.5.2
   json_serializable: ^6.8.0
+  msix: ^3.16.8
 
+msix_config:
+  display_name: Krua App
+  publisher_display_name: Aspiron Co.,Ltd
+  msix_version: 1.0.0.0
+  logo_path: windows\runner\resources\app_icon.ico
+  capabilities: internetClient, location, microphone, webcam
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 

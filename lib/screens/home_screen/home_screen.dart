@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:krua_pos/models/providers/authentication.dart';
 import 'package:provider/provider.dart';
 
@@ -16,19 +17,26 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Home Screen"),
+        title: const Text("Home Screen"),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text('Hello, ${context.read<Authentication>().userName}'),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                context.go('/sale');
+              },
+              child: const Text('Go to Sale', style: TextStyle(fontSize: 18, color: Colors.grey),)
+            ),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
                 context.read<Authentication>().logout();
               },
-              child: Text('Logut', style: TextStyle(fontSize: 18, color: Colors.grey),)
+              child: const Text('Logut', style: TextStyle(fontSize: 18, color: Colors.grey),)
             ),
           ],
         ),
