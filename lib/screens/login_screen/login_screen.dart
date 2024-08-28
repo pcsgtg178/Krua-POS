@@ -16,8 +16,8 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
 
-    TextEditingController _userCtrl = TextEditingController();
-    TextEditingController _passCtrl = TextEditingController();
+    TextEditingController userCtrl = TextEditingController();
+    TextEditingController passCtrl = TextEditingController();
 
     return Scaffold(
       appBar: AppBar(title: const Text("Login Screen")),
@@ -26,28 +26,28 @@ class _LoginScreenState extends State<LoginScreen> {
         child: Column(
           children: [
             TextField(
-              controller: _userCtrl,
-              decoration: InputDecoration(
+              controller: userCtrl,
+              decoration: const InputDecoration(
                 labelText: 'Username',
                 border: OutlineInputBorder(),
               ),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             TextField(
-              controller: _passCtrl,
+              controller: passCtrl,
               obscureText: true,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Password',
                 border: OutlineInputBorder(),
               ),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             ElevatedButton(
               onPressed: () async  {
-                if (_userCtrl.text.isEmpty) return;
-                await waitLoading(context: context, fun: () async { await Future.delayed(Duration(seconds: 3)); });
+                if (userCtrl.text.isEmpty) return;
+                await waitLoading(context: context, fun: () async { await Future.delayed(const Duration(seconds: 1)); });
                 
-                context.read<Authentication>().login(_userCtrl.text);
+                context.read<Authentication>().login(userCtrl.text);
               },
               child: const Text('Login'),
             ),

@@ -1,8 +1,11 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:krua_pos/models/providers/authentication.dart';
+import 'package:krua_pos/models/receipt.dart';
 import 'package:krua_pos/screens/home_screen/home_screen.dart';
 import 'package:krua_pos/screens/login_screen/login_screen.dart';
 import 'package:krua_pos/screens/payment_screen/payment_screen.dart';
+import 'package:krua_pos/screens/sale_screen/bloc/sale_bloc.dart';
 import 'package:krua_pos/screens/sale_screen/sale_screen.dart';
 import 'package:krua_pos/screens/splash_screen/splash_screen.dart';
 
@@ -26,27 +29,35 @@ class AppRouter {
     initialLocation: '/splash',
     routes: [
       GoRoute(
-        path: '/',
-        builder: (context, state) => const HomeScreen(),
+        path: '/splash',
+        builder: (context, state) => const SplashScreen(),
       ),
       GoRoute(
         path: '/login',
         builder: (context, state) => const LoginScreen(),
       ),
       GoRoute(
-        path: '/splash',
-        builder: (context, state) => const SplashScreen(),
-      ),
-      GoRoute(
-        path: '/sale',
-        builder: (context, state) => const SaleScreen(),
+        path: '/',
+        builder: (context, state) => const HomeScreen(),
         routes: [
           GoRoute(
-            path: 'payment',
-            builder: (context, state) => const PaymentScreen(),
+            path: '/sale',
+            builder: (context, state) => const SaleScreen(),
+            routes: [
+              GoRoute(
+                path: 'payment',
+                builder: (context, state) {
+                    final receipt = state.extra as Receipt?;
+                    if (receipt == null) {
+                      throw Exception('receipt is missing in PaymentScreen');
+                    }
+                    return PaymentScreen(receipt: receipt);
+                  },
+              )
+            ]
           )
         ]
-      )
+      ),
     ],
 
     // redirect to the login page if the user is not logged in

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:krua_pos/screens/sale_screen/bloc/sale_bloc.dart';
 
 class SaleScreen extends StatelessWidget {
@@ -51,7 +52,10 @@ class SaleScreen extends StatelessWidget {
                         ),
                         ElevatedButton(onPressed: () {
                           context.read<SaleBloc>().add(ItemAdded(barcodeCtrl.text));
-                        }, child: const Text('Add Item'))
+                        }, child: const Text('Add Item')),
+                        ElevatedButton(onPressed: () {
+                          context.go('/sale/payment', extra: receipt);
+                        }, child: const Text('Go to Payment'))
                       ],
                     ),
                   )

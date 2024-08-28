@@ -32,7 +32,6 @@ class SaleBloc extends Bloc<SaleEvent, SaleState> {
   SaleBloc() : super(SaleState()) {
     on<SaleReady>((event, emit) {
       var receipt = state.receipt;
-      print(state.receipt.itemList);
       emit(state.copyWith(receipt: receipt.copyWith(receiptId: '001')));
     });
 
