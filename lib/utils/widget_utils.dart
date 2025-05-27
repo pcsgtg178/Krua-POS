@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:krua_pos/common_widgets/splash_loading.dart';
+import 'package:krua_pos/widgets/splash_loading.dart';
 
 Future<T> waitLoading<T>({
   required BuildContext context,

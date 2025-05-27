@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:krua_pos/common_widgets/splash_loading.dart';
-import 'package:krua_pos/models/providers/authentication.dart';
+import 'package:krua_pos/widgets/splash_loading.dart';
+import 'package:krua_pos/services/authentication.dart';
 import 'package:krua_pos/utils/widget_utils.dart';
 import 'package:provider/provider.dart';
 
@@ -47,7 +47,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 if (userCtrl.text.isEmpty) return;
                 await waitLoading(context: context, fun: () async { await Future.delayed(const Duration(seconds: 1)); });
                 
-                context.read<Authentication>().login(userCtrl.text);
+                Authentication.instance.login(userCtrl.text);
               },
               child: const Text('Login'),
             ),

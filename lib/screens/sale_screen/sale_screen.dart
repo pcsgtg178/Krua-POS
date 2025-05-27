@@ -34,7 +34,12 @@ class SaleScreen extends StatelessWidget {
                         itemCount: receipt.itemList.length,
                         itemBuilder: (context, index) {
                           String itemName = receipt.itemList[index];
-                          return Text(itemName, style: const TextStyle(fontSize: 14, color: Colors.black));
+                          return Container(
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle
+                            ),
+                            child: Text(itemName, style: const TextStyle(fontSize: 14))
+                          );
                         },
                       ),
                     )
@@ -50,9 +55,11 @@ class SaleScreen extends StatelessWidget {
                             hintText: 'Please enter barcode.'
                           ),
                         ),
+                        SizedBox(height: 10.0),
                         ElevatedButton(onPressed: () {
                           context.read<SaleBloc>().add(ItemAdded(barcodeCtrl.text));
                         }, child: const Text('Add Item')),
+                        SizedBox(height: 10.0),
                         ElevatedButton(onPressed: () {
                           context.go('/sale/payment', extra: receipt);
                         }, child: const Text('Go to Payment'))

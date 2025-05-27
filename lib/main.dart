@@ -1,31 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:krua_pos/constants/theme.dart';
 import 'package:provider/provider.dart';
-import 'package:krua_pos/models/providers/authentication.dart';
-import 'package:krua_pos/routing.dart';
+import 'package:krua_pos/services/authentication.dart';
+import 'package:krua_pos/routing/router.dart';
 
 void main() {
-
-  final auth = Authentication();
-
+  print('run main');
   WidgetsFlutterBinding.ensureInitialized();
 
-  final appRouter = AppRouter(auth);
-
   runApp(
-    MultiProvider(
-      providers: [
-        ChangeNotifierProvider<Authentication>(create: (_) => auth),
-      ],
-      child: Application(appRouter: appRouter)
-    )
+    Application()
   );
 }
 
 class Application extends StatefulWidget {
 
-  const Application({Key? key, required this.appRouter}) : super(key: key);
-
-  final AppRouter appRouter;
+  const Application({Key? key}) : super(key: key);
 
   @override
   State createState() {
@@ -39,8 +29,13 @@ class ApplicationState extends State<Application> {
   Widget build(BuildContext context) {
     
     return MaterialApp.router(
-      routerConfig: widget.appRouter.router,
+      routerDelegate: router.routerDelegate,
+      routeInformationParser: router.routeInformationParser,
+      routeInformationProvider: router.routeInformationProvider,
       debugShowCheckedModeBanner: false,
+      themeMode: ThemeMode.light, //or ThemeMode.dark
+      theme: GlobalThemeData.lightThemeData,
+      darkTheme: GlobalThemeData.darkThemeData,
     );
   }
 }

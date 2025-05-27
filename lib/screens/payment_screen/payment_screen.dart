@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:krua_pos/models/receipt.dart';
-import 'package:krua_pos/screens/sale_screen/bloc/sale_bloc.dart';
-import 'package:provider/provider.dart';
 
 class PaymentScreen extends StatelessWidget {
   const PaymentScreen({super.key, required this.receipt});

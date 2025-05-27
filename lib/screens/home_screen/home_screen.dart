@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:krua_pos/models/providers/authentication.dart';
-import 'package:provider/provider.dart';
+import 'package:krua_pos/screens/layouts/app_sidebar.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  HomeScreen({Key? key}) : super(key: key);
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -12,7 +11,8 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
 
-  
+  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,24 +23,10 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Hello, ${context.read<Authentication>().userName}'),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                context.go('/sale');
-              },
-              child: const Text('Go to Sale', style: TextStyle(fontSize: 18, color: Colors.grey),)
-            ),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                context.read<Authentication>().logout();
-              },
-              child: const Text('Logut', style: TextStyle(fontSize: 18, color: Colors.grey),)
-            ),
           ],
         ),
       ),
+      drawer: AppSidebar(),
     );
   }
 }

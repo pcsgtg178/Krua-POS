@@ -7,11 +7,6 @@
 
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:krua_pos/main.dart';
-import 'package:krua_pos/models/providers/authentication.dart';
-import 'package:krua_pos/routing.dart';
-import 'package:provider/provider.dart';
-
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // final auth = Authentication();
