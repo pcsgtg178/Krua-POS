@@ -48,21 +48,7 @@ class SaleScreen extends StatelessWidget {
                     width: 300.0,
                     child: Column(
                       children: [
-                        TextField(
-                          controller: barcodeCtrl,
-                          decoration: const InputDecoration(
-                            label: Text('Barcode'),
-                            hintText: 'Please enter barcode.'
-                          ),
-                        ),
-                        SizedBox(height: 10.0),
-                        ElevatedButton(onPressed: () {
-                          context.read<SaleBloc>().add(ItemAdded(barcodeCtrl.text));
-                        }, child: const Text('Add Item')),
-                        SizedBox(height: 10.0),
-                        ElevatedButton(onPressed: () {
-                          context.go('/sale/payment', extra: receipt);
-                        }, child: const Text('Go to Payment'))
+                        
                       ],
                     ),
                   )

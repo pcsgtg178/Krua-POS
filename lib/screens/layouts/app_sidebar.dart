@@ -26,27 +26,40 @@ class AppSidebar extends StatelessWidget {
                   children: [
                     ListTile(
                       leading: const Icon(Icons.circle, size: 14),
-                      title: const Text('Item', style: TextStyle(fontSize: 18, color: Colors.grey),),
+                      title: const Text('Tables', style: TextStyle(fontSize: 18, color: Colors.grey),),
                       onTap: () {
-                        context.go('/product-data');
+                        context.go('/tables');
                       },
                     ),
                     ListTile(
                       leading: const Icon(Icons.circle, size: 14),
-                      title: const Text('Menu', style: TextStyle(fontSize: 18, color: Colors.grey),),
+                      title: const Text('Menu Items', style: TextStyle(fontSize: 18, color: Colors.grey),),
                       onTap: () {
-                        context.go('/menu');
+                        context.go('/menu-items');
                       },
                     ),
                   ],
                 ),
-                // ExpansionTile(
-                //   title: const Text('System Setup', style: TextStyle(fontSize: 18, color: Colors.grey)),
-                //   leading: const Icon(Icons.menu),
-                //   children: [
-                //
-                //   ],
-                // ),
+                ExpansionTile(
+                  title: const Text('System Setup', style: TextStyle(fontSize: 18, color: Colors.grey)),
+                  leading: const Icon(Icons.menu),
+                  children: [
+                    ListTile(
+                      leading: const Icon(Icons.circle, size: 14),
+                      title: const Text('User Management', style: TextStyle(fontSize: 18, color: Colors.grey),),
+                      onTap: () {
+                        context.go('/user-management');
+                      },
+                    ),
+                    ListTile(
+                      leading: const Icon(Icons.circle, size: 14),
+                      title: const Text('List of Value', style: TextStyle(fontSize: 18, color: Colors.grey),),
+                      onTap: () {
+                        context.go('/lov');
+                      },
+                    ),
+                  ],
+                ),
               ]
           ),
         )

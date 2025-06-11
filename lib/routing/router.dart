@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:go_router/go_router.dart';
+import 'package:krua_pos/screens/order_screen/order_screen.dart';
 
 import 'package:krua_pos/services/authentication.dart';
 
@@ -25,6 +26,10 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: '/login',
       builder: (context, state) => const LoginScreen(),
+    ),
+    GoRoute(
+      path: '/order',
+      builder: (context, state) => const OrderScreen(),
     ),
     GoRoute(
       path: '/',
