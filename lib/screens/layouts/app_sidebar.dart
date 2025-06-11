@@ -28,7 +28,7 @@ class AppSidebar extends StatelessWidget {
                       leading: const Icon(Icons.circle, size: 14),
                       title: const Text('Item', style: TextStyle(fontSize: 18, color: Colors.grey),),
                       onTap: () {
-                        context.go('/item');
+                        context.go('/product-data');
                       },
                     ),
                     ListTile(
@@ -40,19 +40,13 @@ class AppSidebar extends StatelessWidget {
                     ),
                   ],
                 ),
-                ExpansionTile(
-                  title: const Text('System Setup', style: TextStyle(fontSize: 18, color: Colors.grey)),
-                  leading: const Icon(Icons.menu),
-                  children: [
-                    ListTile(
-                      leading: const Icon(Icons.circle, size: 14),
-                      title: const Text('Product Item Config', style: TextStyle(fontSize: 18, color: Colors.grey),),
-                      onTap: () {
-                        context.go('/product-item-config');
-                      },
-                    ),
-                  ],
-                ),
+                // ExpansionTile(
+                //   title: const Text('System Setup', style: TextStyle(fontSize: 18, color: Colors.grey)),
+                //   leading: const Icon(Icons.menu),
+                //   children: [
+                //
+                //   ],
+                // ),
               ]
           ),
         )
