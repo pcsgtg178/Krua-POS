@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:krua_pos/screens/layouts/app_sidebar.dart';
 import 'package:krua_pos/widgets/my_table.dart';
 
-class ProductDataScreen extends StatelessWidget {
-  const ProductDataScreen({super.key});
+class MenuItemsScreen extends StatelessWidget {
+  const MenuItemsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

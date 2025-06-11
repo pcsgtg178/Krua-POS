@@ -10,6 +10,7 @@ import 'package:krua_pos/screens/splash_screen/splash_screen.dart';
 import 'package:krua_pos/screens/system_setup/user_management/user_management_screen.dart';
 
 import 'package:krua_pos/routing/sale.routes.dart' as saleRoutes;
+import 'package:krua_pos/routing/systemsetup.routes.dart' as systemSetupRoutes;
 import 'package:krua_pos/routing/masterdata.dart' as masterDataRoutes;
 
 part 'redirection.dart';
@@ -29,12 +30,9 @@ final GoRouter router = GoRouter(
       path: '/',
       builder: (context, state) => HomeScreen(),
       routes: [
-        GoRoute(
-          path: '/user-management',
-          builder: (context, state) => const UserManagementScreen(),
-        ),
         ...saleRoutes.routes,
         ...masterDataRoutes.routes,
+        ...systemSetupRoutes.routes,
       ]
     ),
   ],
